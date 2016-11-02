@@ -1,0 +1,221 @@
+################################
+##                            ##
+##     Grading question 9     ##
+##                            ##
+################################
+> :: Compiling...
+> g++ -std=c++0x -c -g -O0 -Wall -Wextra -Wno-unused-function   -c -o binarytree_q9.o binarytree_q9.cpp
+> :: Compiled successfully!
+> :: Trying to compile binarytree_q10.cpp...
+> g++ -std=c++0x -c -g -O0 -Wall -Wextra -Wno-unused-function   -c -o binarytree_q10.o binarytree_q10.cpp
+> binarytree_q10.cpp:3: warning: unused parameter 'arr'
+> :: Compiling provided code...
+> 
+> :: Compiling test_empty.
+> test_empty.o: In function `findMax(std::vector<int, std::allocator<int> >, bool)':
+> /dev/shm/cs225student/prairielearn/temp/exam3-binarytree/grade-q9.wnV/helper.cpp:14: undefined reference to `BinaryTree::find_max() const'
+> collect2: ld returned 1 exit status
+> make: *** [binarytree] Error 1
+> Could not run linker; trying without binarytree_q10.o.
+> test_empty.o: In function `findMax(std::vector<int, std::allocator<int> >, bool)':
+> /dev/shm/cs225student/prairielearn/temp/exam3-binarytree/grade-q9.wnV/helper.cpp:14: undefined reference to `BinaryTree::find_max() const'
+> collect2: ld returned 1 exit status
+> make: *** [binarytree] Error 1
+> Linker failed to produce executable.
+> 
+> :: Compiling test_single.
+> test_single.o: In function `findMax(std::vector<int, std::allocator<int> >, bool)':
+> /dev/shm/cs225student/prairielearn/temp/exam3-binarytree/grade-q9.wnV/helper.cpp:14: undefined reference to `BinaryTree::find_max() const'
+> collect2: ld returned 1 exit status
+> make: *** [binarytree] Error 1
+> Could not run linker; trying without binarytree_q10.o.
+> test_single.o: In function `findMax(std::vector<int, std::allocator<int> >, bool)':
+> /dev/shm/cs225student/prairielearn/temp/exam3-binarytree/grade-q9.wnV/helper.cpp:14: undefined reference to `BinaryTree::find_max() const'
+> collect2: ld returned 1 exit status
+> make: *** [binarytree] Error 1
+> Linker failed to produce executable.
+> 
+> :: Compiling test_multi1.
+> test_multi1.o: In function `findMax(std::vector<int, std::allocator<int> >, bool)':
+> /dev/shm/cs225student/prairielearn/temp/exam3-binarytree/grade-q9.wnV/helper.cpp:14: undefined reference to `BinaryTree::find_max() const'
+> collect2: ld returned 1 exit status
+> make: *** [binarytree] Error 1
+> Could not run linker; trying without binarytree_q10.o.
+> test_multi1.o: In function `findMax(std::vector<int, std::allocator<int> >, bool)':
+> /dev/shm/cs225student/prairielearn/temp/exam3-binarytree/grade-q9.wnV/helper.cpp:14: undefined reference to `BinaryTree::find_max() const'
+> collect2: ld returned 1 exit status
+> make: *** [binarytree] Error 1
+> Linker failed to produce executable.
+> 
+> :: Compiling test_multi2.
+> test_multi2.o: In function `findMax(std::vector<int, std::allocator<int> >, bool)':
+> /dev/shm/cs225student/prairielearn/temp/exam3-binarytree/grade-q9.wnV/helper.cpp:14: undefined reference to `BinaryTree::find_max() const'
+> collect2: ld returned 1 exit status
+> make: *** [binarytree] Error 1
+> Could not run linker; trying without binarytree_q10.o.
+> test_multi2.o: In function `findMax(std::vector<int, std::allocator<int> >, bool)':
+> /dev/shm/cs225student/prairielearn/temp/exam3-binarytree/grade-q9.wnV/helper.cpp:14: undefined reference to `BinaryTree::find_max() const'
+> collect2: ld returned 1 exit status
+> make: *** [binarytree] Error 1
+> Linker failed to produce executable.
+> 
+> :: Compiling test_multi3.
+> test_multi3.o: In function `findMax(std::vector<int, std::allocator<int> >, bool)':
+> /dev/shm/cs225student/prairielearn/temp/exam3-binarytree/grade-q9.wnV/helper.cpp:14: undefined reference to `BinaryTree::find_max() const'
+> collect2: ld returned 1 exit status
+> make: *** [binarytree] Error 1
+> Could not run linker; trying without binarytree_q10.o.
+> test_multi3.o: In function `findMax(std::vector<int, std::allocator<int> >, bool)':
+> /dev/shm/cs225student/prairielearn/temp/exam3-binarytree/grade-q9.wnV/helper.cpp:14: undefined reference to `BinaryTree::find_max() const'
+> collect2: ld returned 1 exit status
+> make: *** [binarytree] Error 1
+> Linker failed to produce executable.
+> 
+> :: Compiling test_multi4.
+> test_multi4.o: In function `findMax(std::vector<int, std::allocator<int> >, bool)':
+> /dev/shm/cs225student/prairielearn/temp/exam3-binarytree/grade-q9.wnV/helper.cpp:14: undefined reference to `BinaryTree::find_max() const'
+> collect2: ld returned 1 exit status
+> make: *** [binarytree] Error 1
+> Could not run linker; trying without binarytree_q10.o.
+> test_multi4.o: In function `findMax(std::vector<int, std::allocator<int> >, bool)':
+> /dev/shm/cs225student/prairielearn/temp/exam3-binarytree/grade-q9.wnV/helper.cpp:14: undefined reference to `BinaryTree::find_max() const'
+> collect2: ld returned 1 exit status
+> make: *** [binarytree] Error 1
+> Linker failed to produce executable.
+> 
+> :: Compiling test_multi5.
+> test_multi5.o: In function `findMax(std::vector<int, std::allocator<int> >, bool)':
+> /dev/shm/cs225student/prairielearn/temp/exam3-binarytree/grade-q9.wnV/helper.cpp:14: undefined reference to `BinaryTree::find_max() const'
+> collect2: ld returned 1 exit status
+> make: *** [binarytree] Error 1
+> Could not run linker; trying without binarytree_q10.o.
+> test_multi5.o: In function `findMax(std::vector<int, std::allocator<int> >, bool)':
+> /dev/shm/cs225student/prairielearn/temp/exam3-binarytree/grade-q9.wnV/helper.cpp:14: undefined reference to `BinaryTree::find_max() const'
+> collect2: ld returned 1 exit status
+> make: *** [binarytree] Error 1
+> Linker failed to produce executable.
+Grade for question 9: 12.5/100
+
+#################################
+##                             ##
+##     Grading question 10     ##
+##                             ##
+#################################
+> :: Compiling...
+> g++ -std=c++0x -c -g -O0 -Wall -Wextra -Wno-unused-function   -c -o binarytree_q10.o binarytree_q10.cpp
+> binarytree_q10.cpp:3: warning: unused parameter 'arr'
+> :: Compiled successfully!
+> :: Trying to compile binarytree_q9.cpp...
+> g++ -std=c++0x -c -g -O0 -Wall -Wextra -Wno-unused-function   -c -o binarytree_q9.o binarytree_q9.cpp
+> :: Compiling provided code...
+> 
+> :: Compiling test_big.
+> :: Running test_big.
+> Constructing a PBST from: [9, 10, 16, 17, 22, 29, 30, 35, 43, 60, 61, 63, 64, 73, 74, 75, 76, 77, 81, 93, 96, 102, 109, 114, 116, 118, 119, 127, 137, 143, 147]
+> Result:
+> (empty)
+> Expected:
+>                         ______ 75 _____
+>                  ______/               \______
+>             __ 35 _                         _ 114 _
+>          __/       \__                   __/       \__
+>        17              63              93             127
+>      /   \           /   \           /   \           /   \
+>    10      29      60      73      77     102     118     143
+>   / \     / \     / \     / \     / \     / \     / \     / \
+>  9   16  22  30  43  61  64  74  76  81  96 109 116 119 137 147
+> :: Failed test_big.
+> 
+> :: Compiling test_big_bst.
+> :: Running test_big_bst.
+> Constructing a PBST from: [9, 10, 16, 17, 22, 29, 30, 35, 43, 60, 61, 63, 64, 73, 74, 75, 76, 77, 81, 93, 96, 102, 109, 114, 116, 118, 119, 127, 137, 143, 147]
+> Result:
+> (empty)
+> Result is a BST: true
+> :: Passed test_big_bst.
+> 
+> :: Compiling test_big_full.
+> :: Running test_big_full.
+> Constructing a PBST from: [9, 10, 16, 17, 22, 29, 30, 35, 43, 60, 61, 63, 64, 73, 74, 75, 76, 77, 81, 93, 96, 102, 109, 114, 116, 118, 119, 127, 137, 143, 147]
+> Result:
+> (empty)
+> Result is a full tree: true
+> :: Passed test_big_full.
+> 
+> :: Compiling test_empty.
+> :: Running test_empty.
+> Constructing a PBST from: []
+> Result:
+> (empty)
+> Expected:
+> (empty)
+> :: Passed test_empty.
+> 
+> :: Compiling test_med.
+> :: Running test_med.
+> Constructing a PBST from: [1, 2, 3, 4, 5, 6, 7]
+> Result:
+> (empty)
+> Expected:
+>        4
+>      /   \
+>    2       6
+>   / \     / \
+>  1   3   5   7
+> :: Failed test_med.
+> 
+> :: Compiling test_med_bst.
+> :: Running test_med_bst.
+> Constructing a PBST from: [1, 2, 3, 4, 5, 6, 7]
+> Result:
+> (empty)
+> Result is a BST: true
+> :: Passed test_med_bst.
+> 
+> :: Compiling test_med_full.
+> :: Running test_med_full.
+> Constructing a PBST from: [1, 2, 3, 4, 5, 6, 7]
+> Result:
+> (empty)
+> Result is a full tree: true
+> :: Passed test_med_full.
+> 
+> :: Compiling test_single.
+> :: Running test_single.
+> Constructing a PBST from: [1]
+> Result:
+> (empty)
+> Expected:
+>  1
+> :: Failed test_single.
+> 
+> :: Compiling test_small.
+> :: Running test_small.
+> Constructing a PBST from: [1, 2, 3]
+> Result:
+> (empty)
+> Expected:
+>    2
+>   / \
+>  1   3
+> :: Failed test_small.
+> 
+> :: Compiling test_small_bst.
+> :: Running test_small_bst.
+> Constructing a PBST from: [1, 2, 3]
+> Result:
+> (empty)
+> Result is a BST: true
+> :: Passed test_small_bst.
+> 
+> :: Compiling test_small_full.
+> :: Running test_small_full.
+> Constructing a PBST from: [1, 2, 3]
+> Result:
+> (empty)
+> Result is a full tree: true
+> :: Passed test_small_full.
+Grade for question 10: 66.66/100
+
+
+Total score: 12.5*0.14 + 66.66*0.06 = 5.7496/20

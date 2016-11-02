@@ -1,0 +1,283 @@
+#include <iostream>
+#include <queue>
+#include <stack>
+#include <string>
+#include <time.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+
+using namespace std;
+
+/********************************************************************************************
+ * This is the Animal Class. 
+ *
+ * The type parameter specifies whether the animal is a Cat or a Dog. 
+ * The rescue_time parameter specifies the time at which 
+ *          the animal was rescued and brought into the shelter. 
+ * Class has a virtual function thanks_for_rescue() function 
+ *          which is used when the Animal is rescued and brought into the shelter. 
+ *          It prints out the type of animal rescued and the rescue time
+ * Class has another virtual function thanks_for_adopting() function
+ *          which is called when an animal is adopted as a pet by a student. 
+ *          It prints the type of animal adopted as a pet and an id specific to the animal.
+ *******************************************************************************************/
+
+ class Animal {
+    public:
+        //Member variables
+        string type;
+        int rescue_time;
+
+        //Constructors
+        Animal(string t, int r): type(t), rescue_time(r) { }
+
+        //Virtual Functions
+        virtual void thanks_for_rescue() {
+            cout << "Animal["<<this->rescue_time<<"]["<<this->type<<"]: I am being rescued. Yay!" <<endl;;
+        }
+
+        virtual void thanks_for_adopting() {
+            cout <<"Animal: I don't know what to say! Thanks!" << endl;
+        }
+};
+
+/********************************************************************************************
+ * This is the Cat class derived from the Animal class 
+ *
+ * Every Cat has a specific catID. 
+ * The Cat constructor has been implemented for you.
+ * You don't need to implement the destructor.
+ * Class has the function thanks_for_adopting() which has been overridden from the parent class
+ *          which is called when a Cat is adopted as a pet by a student. 
+ *          It prints the catID of the cat adopted as a pet and something that a Cat says.
+ *******************************************************************************************/
+
+class Cat: public Animal {
+    public:
+        //Member variables
+        int catID;
+
+        //Constructor
+        Cat(int r, int id) : Animal("Cat", r), catID(id){ }
+        ~Cat();        
+        //Functions
+        virtual void thanks_for_adopting() {
+            cout << "Cat["<<this->catID<<"]: Meow! I'm a Cat" << endl;
+        }
+};
+
+/********************************************************************************************
+ * This is the Dog class derived from the Animal class 
+ *
+ * Every Dog has a specific dogID. 
+ * The Dog constructor has been implemented for you.
+ * You don't need to implement the destructor.
+ * Class has the function thanks_for_adopting() which has been overridden from the parent class
+ *          which is called when a Dog is adopted as a pet by a student. 
+ *          It prints the dogID of the dog adopted as a pet and something that a Dog says.
+ *******************************************************************************************/
+class Dog: public Animal {
+    public:
+        //Member variables
+        int dogID;
+
+        //Constructor
+        Dog(int r, int id) : Animal("Dog", r), dogID(id){ }
+        ~Dog();
+
+        //Functions
+        virtual void thanks_for_adopting() {
+            cout << "Dog["<<this->dogID<<"]: Woof! I'm a Dog" << endl;
+        }
+};
+
+
+/********************************************************************************************
+ * YOU HAVE TO IMPLEMENT ONLY THE ANIMAL SHELTER CLASS FOR WHICH THE SKELETON HAS BEEN GIVEN
+ * YOU DON'T NEED TO TOUCH ANY OF THE ABOVE CLASSES.
+ *******************************************************************************************/
+
+
+
+/********************************************************************************************
+ * This is the AnimalShelter class.  
+ *
+ * Before you implement any of the functions of this class, 
+ *      YOU NEED TO figure out what kind of data structure(s) you will need to simulate this animal shelter.
+ *
+ * We have given you the function definitions. You are not allowed to change any function definitions. 
+ * You need to only fill in code wherever it says "Your Code Here"
+ *******************************************************************************************/
+class AnimalShelter {
+    public:
+       
+        //YOUR CODE HERE
+        //Declare your data structures for cats and dogs
+        queue<Animal> animals;
+
+        void addAnimalToShelter(Animal *a);
+        Animal * givePetCat();
+        Animal * givePetDog();
+        Animal * giveAnyPet();
+};
+
+
+/*******************************************************************************************
+ * This function is called when you want to add animals to your animal shelter.
+ * 
+ * Parameters: Pointer of type Animal 
+ * Return Type: void
+ * *****************************************************************************************/
+void AnimalShelter::addAnimalToShelter(Animal *a) {
+
+
+
+        //Your Code Here
+animals.push(*a);
+
+
+}
+
+
+/*******************************************************************************************
+ * This function is called when a student requests for a Cat as a pet.
+ * Your job is to -
+ *      1. Check if there are Cats available.
+ *      2. If not, cout "No more Cats" and  return NULL
+ *      3. Else, get the oldest cat (the one with the smallest rescue_time)
+ *      4. Call the thanks_for_adopting() method on the cat that you've chosen.
+ *      5. Return the cat that you have chosen.
+ *
+ * Parameters: Nothing
+ * Return Value: Pointer of type Animal
+ * *****************************************************************************************/
+Animal * AnimalShelter::givePetCat() {
+
+
+
+        //Your Code Here
+        
+while(!animals.empty()){
+if(animals.pop()=="Cat"){
+return cat;
+else cout<<"No more cats"<<endl;
+return NULL
+}//push the rest of the animals back
+
+
+}
+
+/*******************************************************************************************
+ * This function is called when a student requests for a Dog as a pet.
+ * Your job is to -
+ *      1. Check if there are Dogs available.
+ *      2. If not, cout "No more Dogs" and  return NULL
+ *      3. Else, get the newest dog (the one with the latest/largest rescue_time)
+ *      4. Call the thanks_for_adopting() method on the dog that you've chosen.
+ *      5. Return the dog that you have chosen.
+ *
+ * Parameters: Nothing
+ * Return Value: Pointer of type Animal
+ * *****************************************************************************************/
+Animal * AnimalShelter::givePetDog() {
+    
+
+while(!animals.empty()){
+if(animals.pop()=="Dog")
+return Dog;
+else cout<<"No more Dogs"<<endl;
+return NULL;
+//push the rest of the animals back
+
+        //Your Code Here
+
+
+
+
+}
+
+/*******************************************************************************************
+ * This function is called when a student requests for any animal as a pet. Not specifically a Cat or Dog.
+ * Your job is to -
+ *      1. Check if there are any more animals available.
+ *      2. If not, cout "No more Animals" and  return NULL
+ *      3. Else, 
+ *          IF there are more cats than dogs in the shelter, return the oldest cat (cat with the smallest recue time)
+ *          IF the number of cats is less than or equal to number of dogs in the shelter, return the newest dog (dog with the largest/latest rescue time)
+ *      4. Call the thanks_for_adopting() method on the animal that you've chosen.
+ *      5. Return the animal that you have chosen.
+ *
+ * Parameters: Nothing
+ * Return Value: Pointer of type Animal
+ * *****************************************************************************************/
+Animal * AnimalShelter::giveAnyPet() {
+
+
+
+
+
+
+
+
+
+        //Your Code Here
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+/*********************************************************************************************
+ * A main function has been provided that simulates an animal shelter.
+ * You may use it to test your code.
+ * Currently the main function randomly rescues cats and dogs and brings them to the shelter.
+ * Also, it randomly asks for pets. whether the student needs a dog, a cat or any pet.
+ *
+ * You may edit the main function to write your own test cases.
+ * *******************************************************/        
+int main() {
+
+    srand(time(NULL));
+
+    int random;
+    int rt = 0, id = 0, count= 0;
+    AnimalShelter as;
+    
+    cout << "Rescuing Animals ----------------------------------------- " << endl;
+    for(count = 0; count < 10; count++) {
+        random = rand()%2;
+        if(random==0) {
+            Cat *c = new Cat(id, rt);
+            as.addAnimalToShelter(c);
+        } else {
+            Dog *d = new Dog(id, rt);
+            as.addAnimalToShelter(d);
+        }
+        id++;
+        rt++;
+    }
+    
+    cout << "Adopting Animals ---------------------------------------- " << endl;
+    Animal *pet;
+    for (count = 0; count < 10; count ++) {
+        random = rand()%3;
+        if(random == 0) {
+            pet = as.giveAnyPet();
+        } else if(random == 1) {
+            pet = as.givePetCat();
+        } else {
+            pet = as.givePetDog();
+        }
+        sleep(1);
+    }    
+    return 0;
+}

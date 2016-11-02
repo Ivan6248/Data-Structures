@@ -1,0 +1,116 @@
+#include "scene.h"
+#include <iostream>
+using namespace::std;
+
+Scene::Scene (int x)
+{
+	max = x;
+	imageArr = new Image*[max];
+	for (int i=0;i<max;i++){
+		imageArr[i]=NULL;
+	}
+}
+
+Scene::~Scene(){
+	delete [] imageArr;
+}
+
+Scene::Scene(const Scene & source)
+{
+	copy(source);
+}
+
+void Scene::copy(const Scene & source)
+{
+	int size=source.max;
+	newArr= new Image *[size];
+	for(int i=0;i<size;i++){
+		if(source.imageArr[i]!=NULL){
+			newArr[i]=new Image(*source.imageArr[i]);
+		}
+		else{
+			newArr[i]=NULL;
+		}
+ 
+	}
+}
+
+const Scene & Scene::operator= (const Scene & source)
+{
+	if(this==&source){
+		return *this;
+	}
+	else{
+		delete [] this;
+		copy(source);
+		return *this;
+	}
+
+}
+
+void Scene::changemaxlayers(int newmax)
+{
+	newArr= new Image*[newmax];
+	if(newmax>max){
+	for (int i=0;i<newmax;i++){
+	}
+}
+	
+}
+
+void Scene::addpicture(const char* Filename, int index, int x, int y)
+{
+	if(index>max-1 || index<0){
+		cout<<"index out of bounds<<"<<endl;
+		return;
+	}
+	imageArr[index]=readFromFile(Filename);
+}
+
+void Scene::changelayer(int index, int newindex)
+{
+	if(newindex==index){
+		return;
+	}
+	if(imageArr[newindex]!=NULL){
+		delete imageArr[newindex];
+		imageArr[newindex]=imageArr[index];
+		imageArr[index]=NULL;
+	}
+	if(newindex>max-1 || newindex<0 || index>max-1 || index<0){
+		cout<<"invalid index"<<endl;
+	}
+
+
+}
+
+void Scene::translate(int index, int xcoord, int ycoord)
+{
+
+}
+
+void Scene::deletepicture(int index)
+{
+	if((index>max-1)||(index<0)||(imageArr[index]=NULL)){
+		cout<<"invalid index"<<endl;
+		return;
+	}
+	delete imageArr[index];
+	imageArr[index]=NULL;
+}
+
+Image * Scene::getpicture(int index) const
+{
+	if ((index>max-1) || (index<0) || (imageArr[index]=NULL)){
+		cout<<"invalid index"<<endl;
+		return NULL;
+	}
+	return imageArr[index];
+}
+
+Image Scene::drawscene() const
+{
+
+}
+
+

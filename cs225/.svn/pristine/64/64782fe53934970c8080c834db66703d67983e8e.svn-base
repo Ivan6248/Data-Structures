@@ -1,0 +1,79 @@
+#include "image.h"
+
+void Image::flipleft()
+{
+	    // Open a new PNG image from the file sample.png.
+    PNG input("in.png");
+	int width = input.width();
+	int height = input.height();
+	PNG output(width,height);
+
+	for (size_t x=0;x<output.width();x++){
+		for(size_t y=0;y<output.height();y++){ 	//code here
+	size_t outX =input.width()-1-x;
+	size_t outY =input.height()-1-y;
+	
+	RGBAPixel *inputP = input(x,y);
+	RGBAPixel *outputP = output(outX, outY);
+
+		outputP->red=inputP->red;
+		outputP->blue=inputP->blue;
+		outputP->green=inputP->green;
+		outputP->alpha=inputP->alpha;
+	}
+	}
+}
+
+void Image::adjustbrightness(int r, int g, int b)
+{
+int width = this->width();
+int height = this->height();
+
+for (int x=0;x<width;x++){
+	for (int y=0; y<height;y++){
+
+	RGBAPixel *pixel = (*this)(x,y);
+
+	pixel->red = pixel->red+r;
+	if(pixel->red<0){
+	pixel->red=0;
+	}
+	if (pixel->red>255){
+	pixel->red=255;
+	}
+
+	pixel->green = pixel->green+g;
+	if(pixel->green<0){
+	pixel->green=0;
+	}
+	if(pixel->green>255){
+	pixel->green=255;
+	}
+
+	pixel->blue = pixel->blue+b;
+	if(pixel->blue<0){
+	pixel->blue=0;
+	}
+	if(pixel->blue>255){
+	pixel->blue=255;
+	}
+	}	
+}
+}
+
+void Image::invertcolors()
+{
+	int width = this->width();
+	int height = this->height();
+	
+	for (int x=0; x<width; x++){
+		for (int y=0;y<height; y++){
+		RGBAPixel *pixel = (*this)(x,y);	
+		pixel->red = 255-pixel->red;
+		pixel->green = 255-pixel->green;
+		pixel->blue = 255-pixel->blue;
+	
+		}
+	}
+
+}

@@ -1,0 +1,49 @@
+Grading r25568 by ivanng3 committed on Sat Mar 12 18:04:45 CST 2016
+Monad Autograder
+Testing lab_trees at 2016-03-14 00:13:50
+
+"@return A voidean value indicating whether the test was successful." ~ lab_avl
+
+Setting up test environment...
+Compiling...
+================================================================
+
+
+Running tests...
+================================================================
+test_isOrdered  . [33 pts] - FAILED: unit_tests.cpp:32: Assertion (tree.isOrdered() == false) failed
+test_mirror . . . [33 pts] - passed
+test_printPaths . [34 pts] - passed
+test_sumDistances [25 pts] - passed
+
+
+Total score...
+================================================================
+TOTAL SCORE: 92
+
+
+
+Detailed test output...
+================================================================
+----------------------------------------------------------------
+test_isOrdered [33 points]
+Result: FAILED: unit_tests.cpp:32: Assertion (tree.isOrdered() == false) failed
+Took 0ms (1000ms timeout)
+Output:
+----------------------------------------------------------------
+                        ______ 6 ______                          
+                 ______/               \______                   
+            __ 0 __                            8 __              
+         __/       \__                             \__           
+       3               5                               1         
+         \           /                               /           
+           7       4                               2             
+                  /                                              
+                 9                                               
+
+
+----------------------------------------------------------------
+Total score...
+================================================================
+TOTAL SCORE: 92
+

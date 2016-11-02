@@ -1,0 +1,221 @@
+Exam 4 Multiple Choice Questions
+
+- These questions may not be in the same order as what you saw on the exam.
+- Your answer is indicated by a '->'
+
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+For a minHeap implementation, assume we use the 0th index of the array
+to store the root (instead of index 1). Given an element at position
+$i$, what would be the position of its parent (assume $i \\neq 0$)?
+
+Choices:
+-> a. $\left\lfloor \frac{i-1}{2} \right\rfloor$
+   b. $\frac{i-1}{2}$
+   c. None of other options
+   d. $\left\lceil \frac{i-1}{2} \right\rceil$
+   e. $\left\lfloor \frac{i}{2} \right\rfloor$
+Your answer was correct.
+
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Which of the following array-based representations of a forest of
+up-trees could not possibly result from a sequence of `union` and `find`
+operations if union-by-size and path compression are employed? (Hint: in
+the array implementation of disjoint sets, keys are implicitly stored in
+array indices)
+
+Choices:
+   a. `[-8, 0, 0, 0, 0, 0, 0, 0]`
+   b. `[-1, -1, -1, -1, -1, -1, -1, -1]`
+   c. All of these are a valid forest of up-trees
+-> d. `[-8, 0, 1, 2, 3, 4, 5, 6]`
+   e. `[-2, 0, -2, 2, -2, 4, -2, 6]`
+Your answer was correct.
+
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Which of the following statements is/are true for a B-tree of order $m$?
+
+(i) The number of keys contained in the B-tree is at most $m^{h+1} − 1$,
+where $h$ is the height of the tree.  
+ (ii) The time to search for a key in a B-tree is $O(m\\log\_m n)$,
+where $n$ is the number of keys in the tree.  
+
+
+Choices:
+   a. Only item (ii) is true.
+   b. All choices are false.
+-> c. Both (i) and (ii) are true.
+   d. Only item (i) is true.
+Your answer was correct.
+
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Given the following Huffman code: `010110101011`, and the following
+Huffman tree:
+
+         #   
+        / \
+       #   #
+      / \ / \
+     a  b c  d
+
+What is the coded message (notice that the tree branches have not been
+denoted as `0` or `1`)?
+
+Choices:
+-> a. `b b c c c d`
+   b. `a a d d d c`
+   c. `c c b b b a`
+   d. `b b c c c d` or `a a d d d c`
+   e. `c c b b b a` or `a d d d c`
+   f. `c c b b b a` or `b b c c c d`
+Your answer was incorrect.
+
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Which of the following is not a fundamental capability of a dictionary?
+
+Choices:
+   a. search
+   b. insert
+   c. delete
+-> d. traverse
+Your answer was correct.
+
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+A hash table of length 10 uses open addressing with hash function $h(k)
+= k \\bmod 10$, and linear probing.
+
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Index</th>
+<th align="left">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">0</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">1</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">2</td>
+<td align="left">42</td>
+</tr>
+<tr class="even">
+<td align="left">3</td>
+<td align="left">23</td>
+</tr>
+<tr class="odd">
+<td align="left">4</td>
+<td align="left">34</td>
+</tr>
+<tr class="even">
+<td align="left">5</td>
+<td align="left">52</td>
+</tr>
+<tr class="odd">
+<td align="left">6</td>
+<td align="left">46</td>
+</tr>
+<tr class="even">
+<td align="left">7</td>
+<td align="left">33</td>
+</tr>
+<tr class="odd">
+<td align="left">8</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">9</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+
+This is the state of the hash table after inserting 6 values. Which of
+the following gives a correct order in which values might have been
+inserted into the hash table?
+
+Choices:
+   a. None of the options is correct
+-> b. 46, 34, 42, 23, 52, 33
+   c. 34, 42, 23, 52, 33, 46
+   d. 46, 42, 34, 52, 23, 33
+   e. 42, 46, 33, 23, 34, 52
+Your answer was correct.
+
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Suppose you want to search an AVL tree holding integer keys for the
+smallest key that is a multiple of 7, if it exists. Which of the
+following is the tightest bound on the worst-case running time of the
+best possible algorithm?
+
+Choices:
+   a. $O(n^2)$
+   b. $O(\log n)$
+   c. None of the other answers
+   d. $O(n\log n)$
+   e. $O(1)$
+-> f. $O(n)$
+Your answer was correct.
+
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+In our uptree disjoint sets implementation, suppose we employ
+union-by-size and no path compression. The running times of the relevant
+functions are:
+
+Choices:
+   a. None of the other answers
+   b. $O(n)$ for `setUnion` and $O(1)$ for `Find`
+   c. $O(\log n)$ for `setUnion` and $O(\log n)$ for `Find`
+-> d. $O(1)$ for `setUnion` and $O(\log n)$ for `Find`
+   e. $O(n)$ for `setUnion` and $O(n\log n)$ for `Find`
+Your answer was correct.
+
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+What is the worst case running time of the best algorithm to build a
+heap from an array containing $n$ items?
+
+Choices:
+   a. $O(\log n)$
+-> b. $O(n)$
+   c. $O(1)$
+   d. $O(n^2)$
+   e. None of the other answers
+   f. $O(n\log n)$
+Your answer was correct.
+
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Suppose you implement a hash table with separate chaining, where instead
+of a linked list, you use a binary search tree (BST). What is the worst
+case running time for inserting 1 element into the hash table of size
+$n$ if resizing is set to occur every time any of the binary trees reach
+a size of $m$—i.e. once $m$ nodes are present in the binary tree?
+
+Choices:
+-> a. $O(n)$
+   b. $O(m)$
+   c. $O(n + m)$
+   d. $O(\log m)$
+   e. $O(1)$
+   f. None of the other options
+Your answer was correct.
+
+~~~~~~~~~~~~~~~~~~~~~~~~
+

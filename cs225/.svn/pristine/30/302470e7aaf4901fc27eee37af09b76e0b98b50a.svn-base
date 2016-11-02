@@ -1,0 +1,63 @@
+/**
+ * @file quadtree.cpp
+ * Quadtree class implementation.
+ * @date Spring 2008
+ */
+ #include "quadtree.h"
+
+
+Quadtree::QuadtreeNode::QuadtreeNode() //QuadtreeNode constructor
+{
+
+}
+
+Quadtree::Quadtree() //Empty constructor
+{
+	root=NULL;
+}
+
+Quadtree::Quadtree(PNG const&source, int resolution) //Constructor
+{
+
+}
+
+Quadtree::Quadtree(Quadtree const &other) //Copy Constructor
+{
+
+}
+
+Quadtree::QuadtreeNode* Quadtree::copy(QuadtreeNode* subRoot) //Copy helper function
+{
+return root;
+}
+
+Quadtree::~Quadtree() //destructor
+{
+
+}
+
+void Quadtree::clear(QuadtreeNode * &subRoot){ //destructor helper
+
+}
+
+Quadtree const & Quadtree::operator =(Quadtree const&other) //assignment operator
+{
+return *this;
+}
+
+void Quadtree::buildTree(PNG const&source, int resolution) 
+{
+
+}
+
+RGBAPixel Quadtree::getPixel(int x, int y) const
+{
+RGBAPixel temp;
+return temp;
+}
+
+PNG Quadtree::decompress() const
+{
+	
+	return PNG();
+}

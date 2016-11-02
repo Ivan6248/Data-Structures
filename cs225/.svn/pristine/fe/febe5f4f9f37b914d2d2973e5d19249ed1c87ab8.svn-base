@@ -1,0 +1,25 @@
+#include "binarytree.h"
+
+/*int BinaryTree::find_max() const {
+    * Your code here! */
+/*
+if(root==NULL)
+	return findMaxHelper(root, currMax); //call helper function 
+    return INT_MIN;
+}
+
+int BinaryTree::findMaxHelper(Node* subRoot, int max)
+{
+if(subRoot==NULL) //if we get to a NULL subroot, just pass back the current max value
+return currMax;
+
+if(subRoot->right->elem > max) //if the right element is larger, update currMax
+	currMax = subRoot->right->elem;
+if(subRoot->left->elem > max) //if the left element is larger, update currMax
+	currMax = subRoot->left->elem;
+findMaxHelper(subRoot->right,currMax); //recursive call
+findMaxHelper(subRoot->left,currMax);
+
+return currMax;
+}
+*/

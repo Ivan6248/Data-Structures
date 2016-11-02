@@ -1,0 +1,26 @@
+queue <int> q; 
+std::vector<int> arr;
+
+
+q.push_back(arr[1]);
+foo(q,1);
+
+void foo(queue *q)
+{
+	while(!q.isEmpty())
+	{
+		int x = q.peek();
+		q.pop();
+
+		if(hasLeftChild)
+			q.push_back(arr[leftChild]);
+		if(hasRightChild)
+			q.push_back(arr[rightChild]);
+
+		cout<<x<<endl;
+	}
+	
+
+
+}
+

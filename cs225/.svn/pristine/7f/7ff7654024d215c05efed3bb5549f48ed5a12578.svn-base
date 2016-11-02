@@ -1,0 +1,31 @@
+#include <string>
+#include <iostream>
+#include <map>
+#include <vector>
+
+using namespace std;
+
+std::vector<int> countDuplicate(std::vector<int> data, int k)
+{
+    // Your Code Here
+    vector<int> replicates;
+	int temp =0;
+	int window = k;
+	int start =0;
+	std::vector<int>::iterator i;
+	for(i =data.begin();i<data.end()-k+1;i++)
+	{	
+		for(int j = start; j<window;j++)
+		{	
+			for(int x=j+1;x<window;x++)
+			{
+				if(data[j]==data[x])
+				temp++;
+			}
+		}
+		replicates.push_back(temp);
+		window++;
+		start++;
+	}
+return replicates;
+}

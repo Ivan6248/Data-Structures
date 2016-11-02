@@ -1,0 +1,254 @@
+Exam 2 Multiple Choice Questions
+
+- These questions may not be in the same order as what you saw on the exam.
+- Your answer is indicated by a '->'
+
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Consider the following class definitions:
+
+    class Restaurant{
+    public:
+        int rate() const;
+    private:
+        double rating;
+    };
+
+    class Chipotle: public Restaurant {
+    public:
+        int rateBad();
+    };
+
+Where could the assignment `rating = 3.0;` appear for the private
+variable `rating`?
+
+Choices:
+   a. The answer to this question cannot be determined from the given code.
+-> b. `rate()` can make the assignment, but `rateBad()` cannot.
+   c. `rateBad()` can make the assignment, but `rate()` cannot.
+   d. Both `rate()` and `rateBad()` can make the assignment.
+   e. Neither `rate()` nor `rateBad()` can make the assignment.
+Your answer was incorrect.
+
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+What will be the output of the following program?
+
+    class Animal
+    {
+        public:
+            virtual void saySomething()
+            {
+                cout << "I don't know what to say";
+            }
+    };
+
+    class Dog:public Animal 
+    {
+        public:
+            void saySomething()
+            {
+                cout << "Woof! Woof!";
+            }
+    };
+
+    int main()
+    {
+        Animal* a;       
+        Dog d;     
+        a = &d;
+        a->saySomething();     
+    }
+
+Choices:
+   a. Runtime Error
+   b. `"I don't know what to say Woof! Woof!"`
+-> c. `"Woof! Woof!"`
+   d. None of the above
+   e. `"I don't know what to say"`
+Your answer was correct.
+
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Assume that you have a templatized `Latte` class, and another `coffee`
+class. Which of the following correctly declares a variable called
+`beverages` which is a dynamic array of `Lattes` whose parameterized
+type is a `coffee`?
+
+Choices:
+   a. ```
+      Latte<coffee *> beverages;
+      ```
+   b. More than one of the other options are correct.
+-> c. ```
+      Latte<coffee> * beverages;
+      ```
+   d. None of the other options is correct.
+   e. ```
+      Latte * beverages = new coffee[size]
+      ```
+Your answer was correct.
+
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+In implementing Queue ADT, using which of the following data structure
+gives best asymptotic runtime for `enqueue`? (Assume we require to
+enqueue at the end of the list or array)
+
+Choices:
+   a. Singly linked list with head pointer only
+   b. None of the other options are correct
+   c. Doubly linked list with head pointer only
+   d. Doubly linked list with head and tail pointer only
+   e. Exactly two of the other options are correct
+-> f. Singly linked list with head and tail pointer
+Your answer was incorrect.
+
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Suppose a `std::queue<int> q` contains 6 elements `1, 2, 3, 4, 5, 6`
+(pushed in that order). What is the result of executing the following
+code snippet, assuming all required libraries are included?
+
+    for(int i = 1; i<7; i++){
+        if(i%2==1) {
+            q.push(q.front());
+            q.pop();
+        }
+    }
+
+Choices:
+   a. `q` remains the same.
+   b. The elements `q` are reversed.
+   c. The front half of `q` contains odd numbers and back half of `q` contains
+      even numbers.
+   d. The even numbers in `q` are reversed.
+-> e. The front half of the original `q` is now at the back half.
+Your answer was correct.
+
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Consider this simple example.
+
+    string * b = new string("NULL");
+    string * a = b;
+    cout<<*a<<endl;
+    delete a;
+    a = NULL; 
+    b = NULL;
+
+What is the result of executing these statements if you assume the
+standard `iostream` library has been included?
+
+Choices:
+-> a. `NULL` is sent to standard out.
+   b. This code results in undefined runtime behavior.
+   c. The memory address of `b` is sent to standard out.
+   d. None of the other options describes the behavior of this code.
+   e. This code has a memory leak.
+Your answer was correct.
+
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Consider this simple example
+
+    #include <iostream>
+    using namespace std;
+
+    class winterfell {
+    public:
+       winterfell(const string & s ): text(s) {};
+       char & operator()(int position) { return text[position];}
+    private:
+        string text;
+    };
+
+    int main() {
+       winterfell t("Winter Is Coming!");
+       for(int i = 0; i < 17; i++)
+            // your code here!
+       return 0;
+    }
+
+Which of the following statements complete the code so that the output
+is `"Winter Is Coming!"`?
+
+Choices:
+   a. `cout << text[i];`
+   b. `cout << t;`
+   c. `cout << t(i);`
+-> d. `cout << t[i];`
+   e. More than one of the other options is correct.
+Your answer was incorrect.
+
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+What is the total tightest worst case running time of adding $n$
+distinct elements to a queue that is implemented using 2 stacks, if no
+other operations are performed?
+
+Choices:
+   a. $O(n \log n)$
+   b. None of the above
+   c. $O(\log n)$
+   d. $O(n)$
+-> e. $O(n^2)$
+Your answer was incorrect.
+
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+We have implemented the Stack ADT as an array. Every time the array is
+full, you resize the array creating a new array that can hold 3 elements
+more than the previous array and copy values over from the old array.
+What is the total running time for $n$ pushes to the stack.
+
+Choices:
+   a. $O(n^2)$.
+   b. $O(1)$.
+   c. $O(\log n)$.
+   d. $O(n)$.
+-> e. $1/3 \* O(n)$.
+Your answer was incorrect.
+
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Let `P` be a singly linked list. Let `Q` be the pointer to an arbitrary
+node `x` in the list. What is the tightest worst-case time complexity of
+the best known algorithm to delete the node `x` from the list, assuming
+that the list has sentinels?
+
+Choices:
+   a. $O(\log\log n)$
+   b. $O(n \log n)$
+   c. $O(n)$
+   d. $O(\log n)$
+-> e. $O(1)$
+Your answer was correct.
+
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+In a double linked list of size $n$,searching for a key takes
+
+Choices:
+   a. $O(1)$
+   b. $O(\log n)$
+   c. $O(n \log n)$
+-> d. $O(n)$
+   e. $O(\log\log n)$
+Your answer was correct.
+
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+In a sorted doubly linked list of size $n$, time taken to print out the
+1st, 2nd, 4th, 8th, 16th elements and so on is
+
+Choices:
+-> a. $O(n)$.
+   b. $O(\log n)$.
+   c. $O(n \log n)$.
+   d. $O(1)$.
+   e. $O(n^2)$.
+Your answer was correct.
+
+~~~~~~~~~~~~~~~~~~~~~~~~
+

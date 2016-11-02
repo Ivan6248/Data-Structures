@@ -1,0 +1,101 @@
+Grading r19375 by ivanng3 committed on Thu Feb 25 21:59:45 CST 2016
+Monad Autograder
+Testing mp3 at 2016-02-26 00:19:01
+
+"Rubber duckies are love. Rubber duckies are life. Rubber duckies help you solve all your debugging problems." ~ Jia Wern Lim
+
+Setting up test environment...
+Compiling...
+================================================================
+In file included from unit_tests.cpp:38:
+In file included from ./list.h:302:
+./list.cpp:380:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+./list.cpp:337:12: note: in instantiation of member function 'List<int>::merge' requested here
+    head = merge(head, otherList.head);
+           ^
+unit_tests.cpp:460:12: note: in instantiation of member function 'List<int>::mergeWith' requested here
+        firstlist.mergeWith(secondlist);
+                  ^
+1 warning generated.
+In file included from unit_tests.cpp:38:
+In file included from ./list.h:302:
+./list.cpp:380:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+./list.cpp:337:12: note: in instantiation of member function 'List<int>::merge' requested here
+    head = merge(head, otherList.head);
+           ^
+unit_tests.cpp:460:12: note: in instantiation of member function 'List<int>::mergeWith' requested here
+        firstlist.mergeWith(secondlist);
+                  ^
+1 warning generated.
+
+
+Running tests...
+================================================================
+testInsertFront  . . . . . . . . [2 pts]  - passed
+testInsertBack . . . . . . . . . [2 pts]  - passed
+testDestructor10 (asan)  . . . . [3 pts]  - passed
+testDestructor37 (asan)  . . . . [3 pts]  - passed
+testReverse20_size . . . . . . . [1 pts]  - passed
+testReverse20_forward  . . . . . [1 pts]  - passed
+testReverse20_backward . . . . . [1 pts]  - passed
+testReverse37_size . . . . . . . [1 pts]  - passed
+testReverse37_forward  . . . . . [1 pts]  - passed
+testReverse37_backward . . . . . [1 pts]  - passed
+testReverseEmpty (asan)  . . . . [1 pts]  - passed
+testReverse20_memory (asan)  . . [1 pts]  - passed
+testReverseNth20_2_size  . . . . [1 pts]  - passed
+testReverseNth20_2_forward . . . [1 pts]  - passed
+testReverseNth20_2_backward  . . [1 pts]  - passed
+testReverseNth37_4_size  . . . . [1 pts]  - passed
+testReverseNth37_4_forward . . . [1 pts]  - passed
+testReverseNth37_4_backward  . . [1 pts]  - passed
+testReverseNth37_37  . . . . . . [1 pts]  - passed
+testReverseNth37_4_memory (asan) [1 pts]  - passed
+testReverseNthEmpty (asan) . . . [1 pts]  - passed
+testWaterfall4_size  . . . . . . [1 pts]  - passed
+testWaterfall4_forward . . . . . [1 pts]  - passed
+testWaterfall4_backward  . . . . [2 pts]  - passed
+testWaterfall7_size  . . . . . . [1 pts]  - passed
+testWaterfall7_forward . . . . . [1 pts]  - passed
+testWaterfall7_backward  . . . . [2 pts]  - passed
+testWaterfall12_size . . . . . . [1 pts]  - passed
+testWaterfall12_forward  . . . . [1 pts]  - passed
+testWaterfall12_backward . . . . [2 pts]  - passed
+testWaterfall7_memory (asan) . . [3 pts]  - passed
+testWaterfall7_empty (asan)  . . [3 pts]  - passed
+testSplit5_this_size . . . . . . [1 pts]  - passed
+testSplit5_this_forward  . . . . [1 pts]  - passed
+testSplit5_this_backward . . . . [1 pts]  - passed
+testSplit5_split_size  . . . . . [1 pts]  - passed
+testSplit5_split_forward . . . . [1 pts]  - passed
+testSplit5_split_backward  . . . [1 pts]  - passed
+testSplit5_mem (asan)  . . . . . [3 pts]  - passed
+testMerge_size . . . . . . . . . [1 pts]  - FAILED
+testMerge_forward  . . . . . . . [1 pts]  - FAILED
+testMerge_backward . . . . . . . [1 pts]  - FAILED
+testMerge_mem (asan) . . . . . . [3 pts]  - FAILED
+testSort16p_s  . . . . . . . . . [1 pts]  - FAILED
+testSort16p_f  . . . . . . . . . [2 pts]  - FAILED
+testSort16p_b  . . . . . . . . . [2 pts]  - FAILED
+testSort20p_s  . . . . . . . . . [1 pts]  - FAILED
+testSort20p_f  . . . . . . . . . [2 pts]  - FAILED
+testSort20p_b  . . . . . . . . . [2 pts]  - FAILED
+testSort27p_s  . . . . . . . . . [1 pts]  - FAILED
+testSort27p_f  . . . . . . . . . [2 pts]  - FAILED
+testSort27p_b  . . . . . . . . . [2 pts]  - FAILED
+testSortEmpty  . . . . . . . . . [5 pts]  - FAILED
+testSort259p_s . . . . . . . . . [1 pts]  - FAILED
+testSort259p_f . . . . . . . . . [2 pts]  - FAILED
+testSort259p_b . . . . . . . . . [2 pts]  - FAILED
+testSortMemLeak (asan) . . . . . [5 pts]  - FAILED
+testSortNlogN  . . . . . . . . . [10 pts] - FAILED
+
+
+Total score...
+================================================================
+TOTAL SCORE: 54
+

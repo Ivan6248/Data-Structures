@@ -1,0 +1,320 @@
+/* Your code here! */
+#include <algorithm>
+#include <vector>
+#include <queue>
+#include <cstdlib>
+#include <sys/time.h>
+#include <time.h>
+#include "maze.h"
+#include "dsets.h"
+
+SquareMaze::SquareMaze()
+{
+	isMaze = false;
+	mazeWidth = 0;
+	mazeHeight = 0;
+	size=0;
+}
+void SquareMaze::makeMaze(int width, int height)
+{
+	if(isMaze)
+	{
+		mazeHeight = 0 ;
+		mazeWidth = 0;
+		size = 0;
+		isMaze=false;
+		downWalls.clear();
+		rightWalls.clear();
+		sets.remove();
+	}
+	if(!isMaze)
+	{
+		isMaze = true;
+		mazeHeight = height;
+		mazeWidth = width;
+		size = mazeWidth*mazeHeight;
+
+		sets.addelements(size);
+
+		for(int i = 0; i<size;i++)
+		{
+			downWalls.push_back(true);
+			rightWalls.push_back(true);
+		}
+
+		int count = 0 ;
+		while(count != size-1)
+		{
+			int randX = rand() % mazeWidth; //a random x-coordinate in grid
+			int randY = rand() % mazeHeight; // a random y-coordinate in grid
+			int index = randY*width + randX; //index in the array
+			//each vector is represented by one long array, so the index represents the place (x,y) in the coordinate
+
+
+			if(downWalls[index]==true && randY<mazeHeight-1){
+				if(sets.find(index)!=sets.find(index+mazeWidth))
+				{
+					downWalls[index]=false;
+					count++;
+					sets.setunion(sets.find(index),sets.find(index+mazeWidth));
+				}
+			}
+			if(rightWalls[index]==true && randX<mazeWidth-1)
+			{
+				if(sets.find(index)!=sets.find(index+1))
+				{
+					rightWalls[index]=false;
+					count++;
+					sets.setunion(sets.find(index),sets.find(index+1));
+
+				}	
+			}
+
+		}
+
+	}
+}
+bool SquareMaze::canTravel(int x, int y, int dir) const
+{
+	if(dir==0)
+	{
+		if(x==mazeWidth-1)
+			return false;
+		else if(rightWalls[x+mazeWidth*y])
+			return false;
+		else return true;
+	}
+	if(dir==1)
+	{
+		if(y==mazeHeight-1)
+			return false;
+		else if(downWalls[x+mazeWidth*y])
+			return false;
+		else return true;
+	}
+	if(dir==2)
+	{
+		if(x==0)
+			return false;
+		else if(rightWalls[mazeWidth*y+x-1])
+			return false;
+		else return true;
+	}
+	if(dir==3)
+	{
+		if(y==0)
+			return false;
+		else if(downWalls[mazeWidth*(y-1)+x])
+			return false;
+		else return true;
+	}
+	return false;
+}
+void SquareMaze::setWall(int x, int y, int dir, bool exists)
+{
+	if(dir==0) //checking right wall
+	{
+		if(exists == false)
+			rightWalls[y*mazeWidth+x]=false;
+		else rightWalls[y*mazeWidth+x]=true;
+	}
+	if(dir==1) //checking down wall
+	{
+		if(exists==false)
+			downWalls[y*mazeWidth+x] = false;
+		else downWalls[y*mazeWidth+x] = true;
+	}
+}
+vector<int> SquareMaze::solveMaze()
+{
+	std::queue<int> temp;
+	temp.push(0);
+
+	vector<int> solution;
+	vector<bool> hasVisited(size,false);
+	vector<int> distances(size,0);
+	vector<int> predecessors(size,-1);
+
+	hasVisited[0]=true;
+
+	int first;
+
+	while(!temp.empty())
+	{
+		first = temp.front();
+		temp.pop();
+
+		int x = first%mazeHeight;
+		int y = first/mazeHeight;
+
+		if(canTravel(x,y,0) && hasVisited[y*mazeHeight+x+1]==false)
+		{
+			hasVisited[y*mazeHeight+x]=true;
+			distances[first+1]=distances[first]+1;
+			predecessors[first+1]=first;
+			temp.push(first+1);
+		}
+		if(canTravel(x,y,1) && hasVisited[(y+1)*mazeHeight+x]==false)
+		{
+			hasVisited[y*mazeHeight+x]=true;
+			distances[first+mazeHeight]=distances[first]+1;
+			predecessors[first+mazeHeight]=first;
+			temp.push(first+mazeHeight);
+		}
+		if(canTravel(x,y,2) && hasVisited[y*mazeHeight+x-1]==false)
+		{
+			hasVisited[y*mazeHeight+x]=true;
+			distances[first-1]=distances[first]+1;
+			predecessors[first-1]=first;
+			temp.push(first-1);
+		}
+		if(canTravel(x,y,3) && hasVisited[(y-1)*mazeHeight+x]==false)
+		{
+			hasVisited[y*mazeHeight+x]=true;
+			distances[first-mazeHeight]=distances[first]+1;
+			predecessors[first-mazeHeight]=first;
+			temp.push(first-mazeHeight);
+		}
+	}
+
+	int bottom = mazeHeight*mazeWidth-mazeWidth;
+
+	for(int i =1; i<mazeWidth;i++)
+	{
+		if(distances[mazeWidth*mazeHeight-mazeWidth+i]>distances[bottom])
+			bottom = mazeWidth*mazeHeight - mazeWidth +i;
+	}
+
+	int indices = bottom;
+
+	while(predecessors[indices]!=-1)
+	{
+		if(predecessors[indices]==indices-1){ //if the cell before is to the left, go right
+			solution.insert(solution.begin(),0);
+			indices=predecessors[indices];
+		}
+		if(predecessors[indices]==indices-mazeHeight){ //if the cell before is up, go down
+			solution.insert(solution.begin(),1);
+			indices=predecessors[indices];
+		}
+		if(predecessors[indices]==indices+1){ //if the cell before is right, go left
+			solution.insert(solution.begin(),2);
+			indices=predecessors[indices];
+		}
+		if(predecessors[indices]==indices+mazeHeight){ //if the cell before is below, go up
+			solution.insert(solution.begin(),3);
+			indices=predecessors[indices];
+		}
+
+
+	}
+
+	return solution;
+}
+PNG* SquareMaze::drawMaze() const
+{	
+	PNG* final = new PNG(mazeWidth*10+1, mazeHeight*10+1); // make a new pixel the size of the height and width * 10 because each pixel is 10x10
+
+	for(int i=0; i<size; i++)
+    {
+        if(rightWalls[i]==true) 
+        {
+            for(int j=0; j<11; j++)
+            {
+                (*final)((i%mazeWidth+1)*10,(i/mazeWidth)*10+j)->red = 0;
+                (*final)((i%mazeWidth+1)*10,(i/mazeWidth)*10+j)->green = 0;
+                (*final)((i%mazeWidth+1)*10,(i/mazeWidth)*10+j)->blue = 0;
+            }
+        }
+        if(downWalls[i]==true) 
+        {
+            for(int j=0; j<11; j++)
+            {
+                (*final)((i%mazeWidth)*10+j, (i/mazeWidth+1)*10)->red = 0;
+                (*final)((i%mazeWidth)*10+j, (i/mazeWidth+1)*10)->green = 0;
+                (*final)((i%mazeWidth)*10+j, (i/mazeWidth+1)*10)->blue = 0;
+            }
+        }
+    }
+
+	for(size_t i=0; i<(*final).height(); i++)
+	{
+		(*final)(0,i)->red = 0;
+		(*final)(0,i)->green = 0;
+		(*final)(0,i)->blue = 0;
+	}
+	for(size_t i = 10; i<(*final).width(); i++)
+	{
+		(*final)(i,0)->red = 0;
+		(*final)(i,0)->green = 0;
+		(*final)(i,0)->blue = 0;
+	}
+	
+
+    return final;
+
+}
+PNG* SquareMaze::drawMazeWithSolution()
+{
+	vector<int>solution=solveMaze();
+	PNG* image = drawMaze();
+	int x, y;
+	x = 5; y = 5;
+
+	for(size_t i =0; i < solution.size(); i++)
+	{
+		if(solution[i] == 0) //going right
+		{
+			for(int j = 0; j < 11; j++)
+			{
+				(*image)(x+j, y)->red = 255;
+				(*image)(x+j, y)->green = 0;
+				(*image)(x+j, y)->blue  = 0;
+			}
+			x = x + 10;
+		}
+		
+		else if(solution[i] == 1) //going down
+		{
+			for(int j = 0; j < 11; j++)
+			{
+				(*image)(x, y+j)->red = 255;
+				(*image)(x, y+j)->green = 0;
+				(*image)(x, y+j)->blue  = 0;
+			}
+			y = y + 10;
+		}
+		
+		else if(solution[i] == 2) //going left
+		{
+			for(int j = 0; j < 11; j++)
+			{
+				(*image)(x-j, y)->red = 255;
+				(*image)(x-j, y)->green = 0;
+				(*image)(x-j, y)->blue  = 0;
+			}
+			x = x - 10;
+		}	
+		
+		else if(solution[i] == 3) //going up
+		{
+			for(int j = 0; j < 11; j++)
+			{
+				(*image)(x, y-j)->red = 255;
+				(*image)(x, y-j)->green = 0;
+				(*image)(x, y-j)->blue  = 0;
+			}
+			y = y - 10;
+		}		
+	}
+	
+	
+	for(int i = 0; i < 9; i++)
+	{
+		(*image)(x-4+i,y+5)->red = 255;
+		(*image)(x-4+i,y+5)->green = 255;
+		(*image)(x-4+i,y+5)->blue = 255;
+	}
+	
+	return image;
+}

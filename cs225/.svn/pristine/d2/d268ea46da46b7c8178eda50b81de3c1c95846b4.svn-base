@@ -1,0 +1,59 @@
+#########################################
+##                                     ##
+##     Grading question exam4-dict     ##
+##                                     ##
+#########################################
+:: Compiling...
+g++ -std=c++0x -c -g -O0 -Wall -Wextra -Wno-unused-function   -c -o dict.o dict.cpp
+:: Compiled successfully!
+:: Compiling provided code...
+
+:: Compiling test_empty.
+:: Running test_empty.
+Counting duplicates in [ ] within windows of size 5
+:: Failed test_empty: Exited with non-zero exit status 139.
+
+:: Compiling test_1.
+:: Running test_1.
+Counting duplicates in [1, 2, 2, 4, 4, 2, 3, 3] within windows of size 4
+Result:   [1, 3, 5, 6, 7]
+Expected: [1, 2, 2, 1, 1]
+:: Failed test_1.
+
+:: Compiling test_2.
+:: Running test_2.
+Counting duplicates in [1, 2, 3, 1, 4, 5] within windows of size 4
+Result:   [1, 1, 1]
+Expected: [1, 0, 0]
+:: Failed test_2.
+
+:: Compiling test_3.
+:: Running test_3.
+Counting duplicates in [1, 2, 2, 1, 3, 2, 1, 3, 4, 5] within windows of size 6
+Result:   [4, 8, 11, 13, 14]
+Expected: [2, 2, 3, 2, 1]
+:: Failed test_3.
+
+:: Compiling test_4.
+:: Running test_4.
+Counting duplicates in [1, 2, 3, 4, 5, 6] within windows of size 3
+Result:   [0, 0, 0, 0]
+Expected: [0, 0, 0, 0]
+:: Passed test_4.
+
+:: Compiling test_5.
+:: Running test_5.
+Counting duplicates in [1, 1, 1, 1, 1, 1, 1] within windows of size 3
+Result:   [3, 6, 9, 12, 15]
+Expected: [1, 1, 1, 1, 1]
+:: Failed test_5.
+
+:: Compiling test_6.
+:: Running test_6.
+Counting duplicates in [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7] within windows of size 13
+Result:   [6, 12]
+Expected: [6, 6]
+:: Failed test_6.
+
+Grade for question exam4-dict: 25/100
+

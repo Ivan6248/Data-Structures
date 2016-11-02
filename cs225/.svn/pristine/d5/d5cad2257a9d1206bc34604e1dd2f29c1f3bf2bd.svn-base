@@ -1,0 +1,41 @@
+Grading r10231 by tolar2 committed on Mon Feb  8 00:34:40 CST 2016
+Monad Autograder
+Testing mp2 at 2016-02-09 00:17:44
+
+"I'm not saying he's evil incarnate based on that fact alone; I've always known it." ~ REDACTED
+
+Setting up test environment...
+Compiling...
+================================================================
+scene.cpp:67:18: error: use of undeclared identifier 'readFromFile'
+        imageArr[index]=readFromFile(Filename);
+                        ^
+scene.cpp:61:61: warning: unused parameter 'x' [-Wunused-parameter]
+void Scene::addpicture(const char* Filename, int index, int x, int y)
+                                                            ^
+scene.cpp:61:68: warning: unused parameter 'y' [-Wunused-parameter]
+void Scene::addpicture(const char* Filename, int index, int x, int y)
+                                                                   ^
+scene.cpp:87:27: warning: unused parameter 'index' [-Wunused-parameter]
+void Scene::translate(int index, int xcoord, int ycoord)
+                          ^
+scene.cpp:87:38: warning: unused parameter 'xcoord' [-Wunused-parameter]
+void Scene::translate(int index, int xcoord, int ycoord)
+                                     ^
+scene.cpp:87:50: warning: unused parameter 'ycoord' [-Wunused-parameter]
+void Scene::translate(int index, int xcoord, int ycoord)
+                                                 ^
+5 warnings and 1 error generated.
+make: *** [scene.o] Error 1
+make: *** Waiting for unfinished jobs....
+
+
+Running tests...
+================================================================
+Could not execute test cases
+
+
+Total score...
+================================================================
+TOTAL SCORE: 0
+

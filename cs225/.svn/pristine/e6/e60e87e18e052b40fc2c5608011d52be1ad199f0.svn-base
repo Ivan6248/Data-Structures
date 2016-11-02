@@ -1,0 +1,74 @@
+/**
+ * @file kdtree.cpp
+ * Implementation of KDTree class.
+ */
+
+template <int Dim>
+bool KDTree<Dim>::smallerDimVal(const Point<Dim>& first,
+                                const Point<Dim>& second, int curDim) const
+{
+    /**
+     * @todo Implement this function!
+     */
+    if(first[curDim]<second[curDim])
+        return true;
+    else if(first[curDim]>second[curDim])
+        return false;
+    return first<second;
+}
+
+template <int Dim>
+bool KDTree<Dim>::shouldReplace(const Point<Dim>& target,
+                                const Point<Dim>& currentBest,
+                                const Point<Dim>& potential) const
+{
+    /**
+     * @todo Implement this function!
+     */
+    int currentDistance=0;
+    int potentialDistance=0;
+    for(int i=0;i<Dim;i++)
+    {
+        currentDistance += (currentBest[i]-target[i])*(currentBest[i]-target[i]);
+    }
+    for(int i=0;i<Dim;i++)
+    {
+        potentialDistance += (potential[i]-target[i])*(potential[i]-target[i]);
+    }
+    if(potentialDistance<currentDistance)
+        return true;
+    else if(potentialDistance>currentDistance)
+        return false;
+    return potential<currentBest;
+}
+template <int Dim>
+int KDTree<Dim>::distance(const Point<Dim>& target,
+                                const Point<Dim>& currentBest,
+                                const Point<Dim>& potential) const
+{
+    int sum =0;
+    for(int i=0;i<Dim;i++)
+    {
+        sum += (currentBest[i]-target[i])*(currentBest[i]-target[i]);
+    }
+    return sum;
+}
+
+template <int Dim>
+KDTree<Dim>::KDTree(const vector<Point<Dim>>& newPoints)
+{
+    /**
+     * @todo Implement this function!
+     */
+}
+
+
+template <int Dim>
+Point<Dim> KDTree<Dim>::findNearestNeighbor(const Point<Dim>& query) const
+{
+    /**
+     * @todo Implement this function!
+     */
+    return Point<Dim>();
+}
+

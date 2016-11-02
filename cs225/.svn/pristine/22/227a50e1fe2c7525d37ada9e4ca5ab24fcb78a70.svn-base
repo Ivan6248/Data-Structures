@@ -1,0 +1,72 @@
+Grading r32805 by ivanng3 committed on Sun Apr  3 18:02:12 CDT 2016
+Monad Autograder
+Testing mp5 at 2016-04-04 00:29:29
+
+"First, solve the problem. Then, write the code." ~ John Johnson
+
+Setting up test environment...
+Compiling...
+================================================================
+unit_tests.o: In function `proxy_test::test_clockwiseRotate_1(util::sizedpipestream<512ul>&)':
+unit_tests.cpp:(.text+0x800d): undefined reference to `Quadtree::clockwiseRotate()'
+unit_tests.o: In function `proxy_test::test_clockwiseRotate_2(util::sizedpipestream<512ul>&)':
+unit_tests.cpp:(.text+0x88d5): undefined reference to `Quadtree::clockwiseRotate()'
+unit_tests.o: In function `proxy_test::test_clockwiseRotate_3(util::sizedpipestream<512ul>&)':
+unit_tests.cpp:(.text+0x8ca5): undefined reference to `Quadtree::clockwiseRotate()'
+unit_tests.o: In function `proxy_test::test_clockwiseRotate_4(util::sizedpipestream<512ul>&)':
+unit_tests.cpp:(.text+0x9075): undefined reference to `Quadtree::clockwiseRotate()'
+unit_tests.cpp:(.text+0x9086): undefined reference to `Quadtree::clockwiseRotate()'
+unit_tests.o: In function `proxy_test::test_prune_1(util::sizedpipestream<512ul>&)':
+unit_tests.cpp:(.text+0x93c2): undefined reference to `Quadtree::prune(int)'
+unit_tests.o: In function `proxy_test::test_prune_2(util::sizedpipestream<512ul>&)':
+unit_tests.cpp:(.text+0x9c96): undefined reference to `Quadtree::prune(int)'
+unit_tests.o: In function `proxy_test::test_prune_3(util::sizedpipestream<512ul>&)':
+unit_tests.cpp:(.text+0xa5b3): undefined reference to `Quadtree::prune(int)'
+unit_tests.o: In function `proxy_test::test_prune_4(util::sizedpipestream<512ul>&)':
+unit_tests.cpp:(.text+0xaeca): undefined reference to `Quadtree::prune(int)'
+unit_tests.o: In function `proxy_test::test_prune_copy(util::sizedpipestream<512ul>&)':
+unit_tests.cpp:(.text+0xb295): undefined reference to `Quadtree::prune(int)'
+unit_tests.o:unit_tests.cpp:(.text+0xb59a): more undefined references to `Quadtree::prune(int)' follow
+unit_tests.o: In function `proxy_test::test_prune_rotate(util::sizedpipestream<512ul>&)':
+unit_tests.cpp:(.text+0xb5ab): undefined reference to `Quadtree::clockwiseRotate()'
+unit_tests.o: In function `proxy_test::test_prune_getPixel(util::sizedpipestream<512ul>&)':
+unit_tests.cpp:(.text+0xb975): undefined reference to `Quadtree::prune(int)'
+unit_tests.o: In function `proxy_test::test_pruneSize_1(util::sizedpipestream<512ul>&)':
+unit_tests.cpp:(.text+0xbba9): undefined reference to `Quadtree::pruneSize(int) const'
+unit_tests.o: In function `proxy_test::test_pruneSize_2(util::sizedpipestream<512ul>&)':
+unit_tests.cpp:(.text+0xbdb4): undefined reference to `Quadtree::pruneSize(int) const'
+unit_tests.o: In function `proxy_test::test_pruneSize_3(util::sizedpipestream<512ul>&)':
+unit_tests.cpp:(.text+0xc044): undefined reference to `Quadtree::pruneSize(int) const'
+unit_tests.o: In function `proxy_test::test_pruneSize_4(util::sizedpipestream<512ul>&)':
+unit_tests.cpp:(.text+0xc2d1): undefined reference to `Quadtree::pruneSize(int) const'
+unit_tests.o: In function `proxy_test::test_pruneSize_5(util::sizedpipestream<512ul>&)':
+unit_tests.cpp:(.text+0xc564): undefined reference to `Quadtree::pruneSize(int) const'
+unit_tests.o: In function `proxy_test::test_idealPrune_1(util::sizedpipestream<512ul>&)':
+unit_tests.cpp:(.text+0xc7f4): undefined reference to `Quadtree::idealPrune(int) const'
+unit_tests.o: In function `proxy_test::test_idealPrune_2(util::sizedpipestream<512ul>&)':
+unit_tests.cpp:(.text+0xca84): undefined reference to `Quadtree::idealPrune(int) const'
+unit_tests.o: In function `proxy_test::test_idealPrune_3(util::sizedpipestream<512ul>&)':
+unit_tests.cpp:(.text+0xcd14): undefined reference to `Quadtree::idealPrune(int) const'
+unit_tests.o: In function `proxy_test::test_idealPrune_4(util::sizedpipestream<512ul>&)':
+unit_tests.cpp:(.text+0xcfa4): undefined reference to `Quadtree::idealPrune(int) const'
+unit_tests.o: In function `proxy_test::val_clockwiseRotate(util::sizedpipestream<512ul>&)':
+unit_tests.cpp:(.text+0xd265): undefined reference to `Quadtree::clockwiseRotate()'
+unit_tests.o: In function `proxy_test::val_prune(util::sizedpipestream<512ul>&)':
+unit_tests.cpp:(.text+0xd6aa): undefined reference to `Quadtree::prune(int)'
+unit_tests.o: In function `proxy_test::val_idealPrune(util::sizedpipestream<512ul>&)':
+unit_tests.cpp:(.text+0xdaed): undefined reference to `Quadtree::idealPrune(int) const'
+unit_tests.cpp:(.text+0xdb0a): undefined reference to `Quadtree::pruneSize(int) const'
+clang-3.5: error: linker command failed with exit code 1 (use -v to see invocation)
+make: *** [proxy] Error 1
+make: *** Waiting for unfinished jobs....
+
+
+Running tests...
+================================================================
+Could not execute test cases
+
+
+Total score...
+================================================================
+TOTAL SCORE: 0
+

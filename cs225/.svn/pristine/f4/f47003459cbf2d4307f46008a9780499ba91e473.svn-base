@@ -1,0 +1,15 @@
+#include "binarytree.h"
+
+void BinaryTree::makeBST(std::vector<int>arr) {
+    /* Your code here! */
+//int x = arr.begin();
+
+//Node subRoot = new Node(arr.begin());
+/*for(auto i=arr.begin();i<arr.size();i++)
+{
+Node(arr[i]); //make nodes for each element in the arr
+//if the next element is greater than the previous element, make it the right child of the current element, if not, make it the left child.
+}
+*/
+    return;
+}
